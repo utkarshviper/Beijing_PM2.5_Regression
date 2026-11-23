@@ -26,14 +26,14 @@
 \usepackage{caption}
 \usepackage{microtype}
 \usepackage{setspace}
-\setstretch{1.05}
+\setstretch{1.02}
 
 \captionsetup{
   font={small,rm},
   labelfont={bf},
   justification=justified,
   singlelinecheck=false,
-  skip=6pt
+  skip=4pt
 }
 
 % Section Headings Setup (Strictly 10 Sections per Guidelines)
@@ -44,9 +44,9 @@
   {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{0.8em}{}
 \titleformat{\subsubsection}
   {\normalfont\fontsize{12}{14}\itshape}{\thesubsubsection}{0.8em}{}
-\titlespacing*{\section}{0pt}{10pt plus 2pt minus 2pt}{4pt plus 1pt minus 1pt}
-\titlespacing*{\subsection}{0pt}{8pt plus 2pt minus 1pt}{3pt plus 1pt minus 1pt}
-\titlespacing*{\subsubsection}{0pt}{6pt plus 1pt minus 1pt}{2pt plus 1pt minus 1pt}
+\titlespacing*{\section}{0pt}{8pt plus 2pt minus 2pt}{3pt plus 1pt minus 1pt}
+\titlespacing*{\subsection}{0pt}{6pt plus 2pt minus 1pt}{2pt plus 1pt minus 1pt}
+\titlespacing*{\subsubsection}{0pt}{5pt plus 1pt minus 1pt}{2pt plus 1pt minus 1pt}
 
 % PDF Metadata / Security (Author: Utkarsh)
 \usepackage[hidelinks]{hyperref}
@@ -94,7 +94,7 @@
 \vspace{1mm}
 \noindent
 \textbf{Project Summary:} 
-The present study is focused on the supervised regression model which predicts the $\text{PM}_{2.5}$ concentration in Beijing based on the weather and spatial data during 420,768 hours (2013–2017) for 12 stations in order to avoid the information leakage companion pollutants are not included into the analysis; the chronological split (three years – training set, one year – test set) is imposed; and scaling/imputation is done after splitting. When tested on a fair test set (15,000 hours), the non-linear Support Vector Regressor (SVR) showed the highest performance ($R^2 = 0.42$, $\text{MAE} = 40.03\,\mu\text{g/m}^3$) as compared to linear regressors ($R^2 = 0.31$). The atmospheric moisture and winter heating had the biggest influence with the $30.47\,\mu\text{g/m}^3$ increase in urban season.
+The present study is focused on the supervised regression model which predicts the $\text{PM}_{2.5}$ concentration in Beijing based on the weather and spatial data during 420,768 hours (2013--2017) for 12 stations in order to avoid the information leakage companion pollutants are not included into the analysis; the chronological split (three years - training set, one year - test set) is imposed; and scaling/imputation is done after splitting. When tested on a fair test set (15,000 hours), the non-linear Support Vector Regressor (SVR) showed the highest performance ($R^2 = 0.42$, $\text{MAE} = 40.03\,\mu\text{g/m}^3$) as compared to linear regressors ($R^2 = 0.31$). The atmospheric moisture and winter heating had the biggest influence with the $30.47\,\mu\text{g/m}^3$ increase in urban season.
 
 \vspace{1mm}
 \noindent
@@ -112,7 +112,7 @@ This problem is exaggerated because Beijing sits in a concave topographic basin 
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.88\textwidth]{figures/fig1_annual_policy_trend.png}
+\includegraphics[width=0.76\textwidth]{figures/fig1_annual_policy_trend.png}
 \caption{Beijing Historical Annual $\text{PM}_{2.5}$ Trajectory (2013--2017). Peak Haze Era (2013--2014) at $102.1\,\mu\text{g/m}^3$ and $99.8\,\mu\text{g/m}^3$ followed by the 2015 Policy Milestone leading to post-policy decline ($81.0\,\mu\text{g/m}^3$ in 2015 and $74.2\,\mu\text{g/m}^3$ in 2016).}
 \label{fig:annual_trend}
 \end{figure*}
@@ -147,11 +147,11 @@ To construct an academically honest machine learning model, two strict methodolo
 \section{Data description:}
 \label{sec:data}
 \noindent
-\textbf{Data Source:} 12 atmospheric monitoring stations (March 2013 -- February 2017) from \textbf{Beijing Multi-Site Air Quality Data} (PRSA), published on the UCI Machine Learning Repository \parencite{chen2019beijing}. Ground-truth accuracy was verified against three independent sources: US Embassy StateAir sensors, Berkeley Earth spatial audits \parencite{rohde2015air}, and NASA satellite data (AERONET \& MODIS AOD).
+\textbf{Data Source:} 12 atmospheric monitoring stations (March 2013 - February 2017) from \textbf{Beijing Multi-Site Air Quality Data} (PRSA), published on the UCI Machine Learning Repository \parencite{chen2019beijing}. Ground-truth accuracy was verified against three independent sources: US Embassy StateAir sensors, Berkeley Earth spatial audits \parencite{rohde2015air}, and NASA satellite data (AERONET \& MODIS AOD).
 
 \vspace{1mm}
 \noindent
-\textbf{Sample Size:} 420,768 total hourly records, split chronologically into 3 years for training (March 2013 -- February 2016) and 1 year for testing (March 2016 -- February 2017). Final model comparisons used a uniform sample of 15,000 held-out test records.
+\textbf{Sample Size:} 420,768 total hourly records, split chronologically into 3 years for training (March 2013 - February 2016) and 1 year for testing (March 2016 - February 2017). Final model comparisons used a uniform sample of 15,000 held-out test records.
 
 \vspace{1mm}
 \noindent
@@ -159,7 +159,7 @@ To construct an academically honest machine learning model, two strict methodolo
 
 \vspace{1mm}
 \noindent
-\textbf{Variables (Predictors):} Weather, time, and location features---specifically physical moisture metrics (such as temperature--dew point spread), wind sectors, seasonal and time-of-day (diurnal) bins, and spatial zone indicators (e.g., urban vs. non-urban).
+\textbf{Variables (Predictors):} Weather, time, and location features-specifically physical moisture metrics (such as temperature-dew point spread), wind sectors, seasonal and time-of-day (diurnal) bins, and spatial zone indicators (e.g., urban vs. non-urban).
 
 \vspace{1mm}
 \noindent
@@ -175,7 +175,7 @@ To construct an academically honest machine learning model, two strict methodolo
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.88\textwidth]{figures/fig0_station_baseline_profile.png}
+\includegraphics[width=0.76\textwidth]{figures/fig0_station_baseline_profile.png}
 \caption{Twelve-Station Baseline Particulate Profile \& Data Balance Check. Across all 12 monitoring stations, data collection is highly reliable with less than a 3\% dropout rate, yet pollution levels vary sharply by location.}
 \label{fig:station_baseline}
 \end{figure*}
@@ -185,7 +185,7 @@ To construct an academically honest machine learning model, two strict methodolo
 \small
 \caption{Names of the 12 stations, spatial zones, geographic coordinates, and valid records.}
 \label{tab:stations}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llccclc@{}}
+\begin{tabularx}{\textwidth}{@{}l l c c X r@{}}
 \toprule
 Station Name & Spatial Zone & Latitude ($^\circ$N) & Longitude ($^\circ$E) & Environment Type & Valid Records \\
 \midrule
@@ -202,7 +202,7 @@ Changping & Rural / Suburban & 40.217 & 116.230 & Northwest Suburban Basin Footh
 Huairou & Rural Background & 40.328 & 116.628 & Northern Mountain Reservoir Basin & 34,238 \\
 Dingling & Rural Background & 40.292 & 116.220 & Ming Tombs / Pristine Background & 34,145 \\
 \bottomrule
-\end{tabular*}
+\end{tabularx}
 \end{table*}
 
 Across all 12 monitoring stations (Table~\ref{tab:stations}), data collection is highly reliable with less than a 3\% dropout rate, yet pollution levels vary sharply by location (Figure~\ref{fig:station_baseline}). Urban core sites like Dongsi and Wanshouxigong show heavily elevated particulate concentrations driven by dense traffic and population, while mountain background stations like Dingling remain significantly cleaner. To ensure these municipal readings aren't skewed by sensor drift, moisture interference, or reporting bias, the study establishes tamper-proof ground truth by cross-referencing the data against three independent external scientific sources.
@@ -227,15 +227,15 @@ To ensure strict real-world forecasting validity, we enforce a \textbf{Chronolog
 \subsection{Feature Engineering (Domain Creation BEFORE Split)}
 Per rigorous machine learning methodology, deterministic feature engineering creates new domain variables from raw features. Because these mathematical functions are purely row-level and deterministic, they are computed prior to splitting without introducing leakage:
 \begin{enumerate}
-    \item \textbf{Physical Moisture Metric --- Temperature-Dew Point Spread (\texttt{temp\_dew\_spread}):}
+    \item \textbf{Physical Moisture Metric - Temperature-Dew Point Spread (\texttt{temp\_dew\_spread}):}
     \begin{equation}
     \text{temp\_dew\_spread} = T - T_{\text{dew}} \quad (^\circ\text{C})
     \end{equation}
     Dew point ($T_{\text{dew}}$) is the temperature to which air must be cooled to become saturated with water vapor. When $T - T_{\text{dew}} \to 0^\circ\text{C}$, the air reaches 100\% relative humidity, promoting fog droplet formation, aqueous-phase chemical reactions of sulfate/nitrate, and hygroscopic aerosol swelling. When $T - T_{\text{dew}} \gg 15^\circ\text{C}$, the air is dry and particulates remain dispersed.
     \item \textbf{Temporal Binning \& Cyclical Dynamics:}
     \begin{itemize}
-        \item \texttt{season}: Categorical factor mapping months into Spring (Mar--May), Summer (Jun--Aug), Autumn (Sep--Nov), and Winter (Dec--Feb).
-        \item \texttt{time\_of\_day}: Binned into Night (00:00--05:00), Morning Rush (06:00--10:00), Afternoon (11:00--16:00), and Evening Rush (17:00--23:00) to capture diurnal boundary layer expansion and traffic peaks.
+        \item \texttt{season}: Categorical factor mapping months into Spring (Mar-May), Summer (Jun-Aug), Autumn (Sep-Nov), and Winter (Dec-Feb).
+        \item \texttt{time\_of\_day}: Binned into Night (00:00-05:00), Morning Rush (06:00-10:00), Afternoon (11:00-16:00), and Evening Rush (17:00-23:00) to capture diurnal boundary layer expansion and traffic peaks.
         \item \texttt{is\_weekend}: Binary flag for Saturday and Sunday to reflect commercial activity schedules.
     \end{itemize}
     \item \textbf{Atmospheric Wind Direction Sectors (\texttt{wd\_sector}):} Following \textcite{zhang2017clean}, the 16 raw compass directions are collapsed into five physical atmospheric corridors:
@@ -280,10 +280,10 @@ To ensure distance metrics (KNN) and regularized weights (Ridge, SVR) are not do
 \label{sec:models}
 Aligned with the introductory machine learning syllabus, we benchmark five distinct model families spanning parametric, non-parametric, distance-based, and kernel algorithms:
 
-\subsection{Baseline Model --- \texttt{DummyRegressor(strategy='mean')}}
+\subsection{Baseline Model - \texttt{DummyRegressor(strategy='mean')}}
 Predicts the scalar training set mean target value $\bar{y}_{\text{train}} = \frac{1}{N_{\text{tr}}} \sum_{i=1}^{N_{\text{tr}}} y_i$ for all test records. This establishes the theoretical baseline floor: by definition, a dummy mean model achieves $R^2 \approx 0.0$. Any viable machine learning model must substantially outperform this floor.
 
-\subsection{Parametric Linear Baselines --- OLS \& Ridge Regression}
+\subsection{Parametric Linear Baselines - OLS \& Ridge Regression}
 \begin{itemize}
     \item \textbf{OLS:} Minimizes residual sum of squares:
     \begin{equation}
@@ -297,21 +297,21 @@ Predicts the scalar training set mean target value $\bar{y}_{\text{train}} = \fr
     Hyperparameter setting: $\alpha = 1.0$.
 \end{itemize}
 
-\subsection{Tree-Based Non-Linearity --- \texttt{DecisionTreeRegressor}}
+\subsection{Tree-Based Non-Linearity - \texttt{DecisionTreeRegressor}}
 Recursively partitions the feature space $\mathcal{X}$ into orthogonal hyper-rectangles $R_m$, predicting the regional average response $\hat{c}_m = \text{avg}(y_i \mid \mathbf{x}_i \in R_m)$. Splits are selected to maximize variance reduction (mean squared error improvement):
 \begin{equation}
 \Delta \text{MSE} = \text{MSE}_{\text{parent}} - \left( \frac{N_L}{N} \text{MSE}_L + \frac{N_R}{N} \text{MSE}_R \right)
 \end{equation}
 Hyperparameter regularization: \texttt{max\_depth=8}, \texttt{min\_samples\_leaf=20}, \texttt{random\_state=42}. Pre-pruning prevents tree memorization of training noise.
 
-\subsection{Distance-Based Non-Parametric --- \texttt{KNeighborsRegressor}}
+\subsection{Distance-Based Non-Parametric - \texttt{KNeighborsRegressor}}
 For a test query $\mathbf{x}_0$, identifies the $K$ nearest training instances $\mathcal{N}_K(\mathbf{x}_0)$ under Euclidean distance in scaled space. Computes a distance-weighted prediction:
 \begin{equation}
 \hat{y}(\mathbf{x}_0) = \frac{\sum_{i \in \mathcal{N}_K(\mathbf{x}_0)} w_i y_i}{\sum_{i \in \mathcal{N}_K(\mathbf{x}_0)} w_i}, \quad w_i = \frac{1}{d(\mathbf{x}_0, \mathbf{x}_i)}
 \end{equation}
 Hyperparameter setting: $K = 15$, inverse distance weighting, trained on a representative 50,000-row stratified slice.
 
-\subsection{Kernel Method --- \texttt{Support Vector Regressor (SVR)}}
+\subsection{Kernel Method - \texttt{Support Vector Regressor (SVR)}}
 Maps scaled predictors into infinite-dimensional Hilbert space via the Radial Basis Function (RBF) kernel:
 \begin{equation}
 K(\mathbf{x}, \mathbf{x}') = \exp\left(-\gamma \|\mathbf{x} - \mathbf{x}'\|^2\right)
@@ -324,7 +324,7 @@ Hyperparameter setting: $C = 10.0$, $\varepsilon = 0.1$, tested on a representat
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.88\textwidth]{figures/fig2_model_performance_diagnostics.png}
+\includegraphics[width=0.76\textwidth]{figures/fig2_model_performance_diagnostics.png}
 \caption{Bias-Variance Diagnostic (Train vs Test RMSE) and Variance Explained ($R^2$). Non-linear models capture atmospheric thresholds that linear baselines miss.}
 \label{fig:model_perf}
 \end{figure*}
@@ -334,7 +334,7 @@ Hyperparameter setting: $C = 10.0$, $\varepsilon = 0.1$, tested on a representat
 \small
 \caption{Empirical Performance Benchmark \& Bias-Variance Diagnostics across the six regression models evaluated on the standardized 15,000 held-out test sample.}
 \label{tab:results}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llcccc@{}}
+\begin{tabularx}{\textwidth}{@{}l l c c c c@{}}
 \toprule
 Model Family & Algorithm & Train RMSE ($\mu\text{g/m}^3$) & Test RMSE ($\mu\text{g/m}^3$) & Test MAE ($\mu\text{g/m}^3$) & Test $R^2$ \\
 \midrule
@@ -345,21 +345,14 @@ Tree-Based & Decision Tree ($\text{max\_depth}=8$) & 61.03 & 63.74 & 44.26 & 0.3
 Distance-Based & K-Nearest Neighbors ($K=15$) & 0.00 & 63.62 & 44.52 & 0.3865 \\
 Kernel Method & Support Vector Regressor (RBF) & 63.18 & 62.07 & 40.03 & \textbf{0.4162} \\
 \bottomrule
-\end{tabular*}
+\end{tabularx}
 \end{table*}
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.88\textwidth]{figures/fig3_feature_importance_weights.png}
+\includegraphics[width=0.76\textwidth]{figures/fig3_feature_importance_weights.png}
 \caption{Intrinsic Feature Importances (Decision Tree) vs Standardized Weights (Ridge). Atmospheric saturation dominates tree splits, while winter heating leads linear weights.}
 \label{fig:feat_imp}
-\end{figure*}
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.88\textwidth]{figures/fig4_counterfactual_matrix.png}
-\caption{Counterfactual Permutations: 4-Quadrant Comparative Matrix. Highlights extreme seasonal particulate swings between winter heating and summer convection.}
-\label{fig:counterfactual}
 \end{figure*}
 
 % =============================================================================
@@ -369,17 +362,17 @@ Kernel Method & Support Vector Regressor (RBF) & 63.18 & 62.07 & 40.03 & \textbf
 \label{sec:eval}
 
 \subsection{Standardized Fair Evaluation Framework}
-In longitudinal datasets, evaluating slow non-parametric algorithms (SVR, KNN) on arbitrary index slices (e.g. \texttt{iloc[:10000]}) introduces severe evaluation bias because sorted records concentrate on only 1--2 monitoring stations.
+In longitudinal datasets, evaluating slow non-parametric algorithms (SVR, KNN) on arbitrary index slices (e.g. \texttt{iloc[:10000]}) introduces severe evaluation bias because sorted records concentrate on only 1-2 monitoring stations.
 
 To ensure complete fairness, \textbf{all six models are evaluated on the exact same randomized test sample} ($N = 15,000$) drawn from the fourth seasonal test year.
 
 Table~\ref{tab:results} and Figure~\ref{fig:model_perf} present the empirical performance benchmark:
 \begin{itemize}
     \item \textbf{Fair Testing:} Instead of testing on the first few thousand rows (which would only cover 1 or 2 stations), we tested all six models on the exact same random sample of 15,000 hours across Beijing.
-    \item \textbf{Linear Models (OLS \& Ridge) --- Too Simple:} These models assume pollution rises in a straight line with weather changes. They don't overfit, but they are too rigid to capture sudden smog spikes, capping out at explaining 31\% of pollution swings ($R^2 = 0.31$).
-    \item \textbf{Decision Tree --- Balanced:} By limiting how deep the tree can grow, it learns real weather patterns without memorizing noise. Its error on new data ($63.74\,\mu\text{g/m}^3$) stays very close to its training error ($61.03\,\mu\text{g/m}^3$), jumping to 38\% explained variance.
-    \item \textbf{K-Nearest Neighbors (KNN) --- Memorizes Training, Still Generalizes:} Because of how it weights nearby points, it scores a ``perfect'' 0.00 error on data it has already seen. On unseen test data, however, it performs almost identically to the Decision Tree ($R^2 = 0.39$).
-    \item \textbf{Support Vector Regressor (SVR) --- Best Overall:} The SVR wins across the board, explaining 42\% of pollution swings with the lowest average error ($40.03\,\mu\text{g/m}^3$). Because it models smooth curves rather than rigid yes/no cutoffs, it handles gradual shifts in air moisture better than the other models.
+    \item \textbf{Linear Models (OLS \& Ridge) - Too Simple:} These models assume pollution rises in a straight line with weather changes. They don't overfit, but they are too rigid to capture sudden smog spikes, capping out at explaining 31\% of pollution swings ($R^2 = 0.31$).
+    \item \textbf{Decision Tree - Balanced:} By limiting how deep the tree can grow, it learns real weather patterns without memorizing noise. Its error on new data ($63.74\,\mu\text{g/m}^3$) stays very close to its training error ($61.03\,\mu\text{g/m}^3$), jumping to 38\% explained variance.
+    \item \textbf{K-Nearest Neighbors (KNN) - Memorizes Training, Still Generalizes:} Because of how it weights nearby points, it scores a ``perfect'' 0.00 error on data it has already seen. On unseen test data, however, it performs almost identically to the Decision Tree ($R^2 = 0.39$).
+    \item \textbf{Support Vector Regressor (SVR) - Best Overall:} The SVR wins across the board, explaining 42\% of pollution swings with the lowest average error ($40.03\,\mu\text{g/m}^3$). Because it models smooth curves rather than rigid yes/no cutoffs, it handles gradual shifts in air moisture better than the other models.
 \end{itemize}
 
 % =============================================================================
@@ -403,12 +396,19 @@ Holding weather strictly identical across all 104,081 test hours, we simulate se
     \item \textbf{Profile B (\texttt{Dummy\_Station\_Rural}):} $\text{is\_urban} = 0$
 \end{itemize}
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.76\textwidth]{figures/fig4_counterfactual_matrix.png}
+\caption{Counterfactual Permutations: 4-Quadrant Comparative Matrix. Highlights extreme seasonal particulate swings between winter heating and summer convection.}
+\label{fig:counterfactual}
+\end{figure*}
+
 \begin{table*}[t]
 \centering
 \small
 \caption{Comprehensive Permutations \& Combinations (P\&C) Sensitivity Analysis holding weather strictly identical across all 104,081 test hours.}
 \label{tab:counterfactual}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccp{6.5cm}@{}}
+\begin{tabularx}{\textwidth}{@{}l c c c X@{}}
 \toprule
 Permutation \& Scenario & Condition A Mean & Condition B Mean & Difference $\Delta$ (A - B) & Atmospheric \& Urban Physics Explanation \\
 \midrule
@@ -419,7 +419,7 @@ Permutation \& Scenario & Condition A Mean & Condition B Mean & Difference $\Del
 6. Urban vs. Rural under SW Wind & 81.93 & 81.82 & $+0.10$ & Transboundary transport trapped against northern Yan mountains. \\
 7. Urban vs. Rural under NW Wind & 62.03 & 61.74 & $+0.28$ & Siberian northwesterlies rapidly flush the entire Beijing basin. \\
 \bottomrule
-\end{tabular*}
+\end{tabularx}
 \end{table*}
 
 Figure~\ref{fig:counterfactual} and Table~\ref{tab:counterfactual} illustrate that while the full-year urban-rural delta is modest ($+0.17\,\mu\text{g/m}^3$), the winter heating season creates an extreme $+30.47\,\mu\text{g/m}^3$ surge in urban air pollution.
@@ -486,7 +486,6 @@ These machine learning models should act as an advising early warning system for
 \label{sec:appendix}
 
 \subsection{Code Instructions \& Environment}
-The entire pipeline is 100\% automated and reproducible. The primary deliverable notebook runs sequentially from beginning to end without manual configuration:
 \begin{verbatim}
 # 1. Clone repository and navigate to workspace
 cd "ML_Mini_Project"
@@ -499,35 +498,7 @@ jupyter notebook notebooks/
 01_beijing_pm25_regression.ipynb
 \end{verbatim}
 
-\subsection{Variable Definitions}
-Table~\ref{tab:variables} provides the formal definitions of all engineered features used in the study.
-
-\begin{table*}[t]
-\centering
-\small
-\caption{Systematic variable definitions, measurement units, and functional roles in the supervised regression framework.}
-\label{tab:variables}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llclp{7.5cm}@{}}
-\toprule
-Variable Name & Type & Unit & Description \\
-\midrule
-\texttt{PM2.5} & Target & $\mu\text{g/m}^3$ & Fine particulate matter concentration (ground-truth sensor). \\
-\texttt{TEMP} & Continuous & $^\circ\text{C}$ & Surface ambient air temperature. \\
-\texttt{PRES} & Continuous & $\text{hPa}$ & Surface barometric atmospheric pressure. \\
-\texttt{WSPM} & Continuous & $\text{m/s}$ & Surface wind speed. \\
-\texttt{RAIN} & Continuous & $\text{mm}$ & Hourly cumulative precipitation. \\
-\texttt{temp\_dew\_spread} & Continuous & $^\circ\text{C}$ & Temperature-dew point spread ($T - T_{\text{dew}}$). \\
-\texttt{season} & Categorical & --- & Four seasonal quarters (\texttt{Spring}, \texttt{Summer}, \texttt{Autumn}, \texttt{Winter}). \\
-\texttt{time\_of\_day} & Categorical & --- & Four diurnal bins (\texttt{Night}, \texttt{Morning Rush}, \texttt{Afternoon}, \texttt{Evening Rush}). \\
-\texttt{wd\_sector} & Categorical & --- & Five atmospheric wind corridors (\texttt{NW}, \texttt{NE}, \texttt{SW}, \texttt{SE}, \texttt{CV}). \\
-\texttt{is\_urban} & Binary & $\{0, 1\}$ & Indicator: 1 for Urban Core station, 0 for Rural Background. \\
-\texttt{is\_weekend} & Binary & $\{0, 1\}$ & Indicator: 1 for Saturday/Sunday, 0 for Weekday. \\
-\bottomrule
-\end{tabular*}
-\end{table*}
-
 \subsection{References}
-\onecolumn
 \printbibliography[heading=none]
 
 \end{document}
