@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches and checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Virtual environments
+venv/
+env/
+.env
+
+# Large raw dataset archives (exceeding recommended GitHub size)
+*.zip
+*.tar.gz
+data/raw/*.zip
+data/raw/PRSA_Data_20130301-20170228/*.csv
+
+# Operating System files
+.DS_Store
+Thumbs.db
