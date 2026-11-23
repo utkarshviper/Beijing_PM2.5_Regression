@@ -145,7 +145,7 @@ streamlit run app.py
 ---
 
 ## 👥 Contributors (Group Assignment)
-* BS Analytics, Batch 2024–2028, TISS School of Analytics
+* BS Analytics, Batch 2024–2028, TISS 
 
 ---
 
